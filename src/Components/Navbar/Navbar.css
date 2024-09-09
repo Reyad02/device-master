@@ -1,0 +1,9 @@
+/* src/styles/NavBar.css */
+
+.NavLink:hover {
+    background-color: transparent; /* Ensure no background color on hover */
+    color: #00AA55; /* Hover text color */
+    /* font-weight: bold; */
+}
+
+
