@@ -46,14 +46,14 @@ const About = () => {
             </div>
 
 
-            <div className='mt-32 mb-12'>
+            <div className=' mb-12'>
                 <div
-                    className="hero min-h-screen w-full"
+                    className="hero  w-full"
                     style={{
                         backgroundImage: "url(https://i.postimg.cc/SQXzGRsv/pngtree-abstract-gradient-crystal-texure-background-in-dark-green-color-image-671444.jpg)",
                     }}>
                     <div className="hero-overlay bg-opacity-60 pb-16"></div>
-                    <div className="hero-content max-w-full text-white text-center flex flex-col justify-start items-start ">
+                    <div className="hero-content max-w-full text-white text-center flex flex-col justify-start items-start py-16">
                         <div className=" flex lg:flex-row lg:items-center flex-col justify-center">
                             <div data-aos="zoom-in-up" className='lg:text-left flex-1 lg:mr-12 lg:ml-4 text-center space-y-4'>
                                 <h1 className="mb-5 text-5xl font-bold">Professional Skills</h1>

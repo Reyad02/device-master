@@ -1,13 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "/Devicemaster.png"
 import { useContext } from "react";
-// import { AuthContext } from "../../../provider/AuthProvider";
-import './Navbar.css'; // Adjust the path according to your folder structure
+import './Navbar.css';
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Navbar = ({ isSticky }) => {
-    // const { user } = useContext(AuthContext);
-
+    const { user, logout } = useContext(AuthContext);
+    const logoutUser = () => {
+        logout();
+    }
 
     const navlink = <>
         <li><NavLink
@@ -64,8 +66,8 @@ const Navbar = ({ isSticky }) => {
                     viewTransitionName: isTransitioning ? "slide" : "",
                     backgroundColor: "transparent",
                 };
-            }} to="/contact" >Contact</NavLink></li>    
-                {/* {
+            }} to="/contact" >Contact</NavLink></li>
+        {/* {
            user ? user.email === import.meta.env.VITE_ADMIN ? <li><NavLink to={"/admin"}>Dashboard</NavLink></li> : <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li> : <></>
         } */}
     </>
@@ -106,9 +108,10 @@ const Navbar = ({ isSticky }) => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* {
-                        user ? <p className="uppercase  text-green-700 hover:opacity-90">Hi, {user?.displayName}</p> : <></>
-                    } */}
+                    {
+                        user ? <button onClick={logoutUser} className="btn bg-[#00A452] text-white border-none outline-none">Logout</button> : <Link className="btn bg-[#00A452] text-white border-none outline-none" to={"/login"}>Login</Link>
+                    }
+
                 </div>
             </div>
         </div>

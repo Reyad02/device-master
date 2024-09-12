@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = ({ name, overview, logo, img }) => {
     return (
         <div>
-            <div className="card bg-white lg:w-96 shadow-xl">
+            <div className="card bg-white  h-96 shadow-xl">
                 <figure className="px-8 pt-8 ">
                     <img className="rounded-lg"
                         src={img}
@@ -18,7 +18,7 @@ const Card = ({ name, overview, logo, img }) => {
                                 src={logo}
                                 alt="Shoes" />
                         </div>
-                        <p>{overview}</p>
+                        <p>{overview?.length>50 ? overview?.slice(0,80) +"..." : overview}</p>
                     </div>
                     <div className="card-actions justify-start">
                         <Link className="flex font-medium items-center gap-1 text-[#00A452]">READ MORE <GoArrowUpRight /> </Link>

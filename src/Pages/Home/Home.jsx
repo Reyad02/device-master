@@ -2,16 +2,30 @@ import Card from '../../Components/Card/Card';
 import Hero from '../../Components/Hero/Hero';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCheckCircle } from "react-icons/fa";
 import { Parallax } from 'react-parallax';
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import Expertise from '../../Components/Expertise/Expertise';
 import CommentSection from '../../Components/CommentSection/CommentSection';
+import axios from 'axios';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+
+
+// import required modules
+import { FreeMode, Pagination } from 'swiper/modules';
+
 
 
 const Home = () => {
+    const [services, setServices] = useState([]);
+
     const insideStyles = {
         padding: 20,
         position: "absolute",
@@ -22,6 +36,7 @@ const Home = () => {
 
     useEffect(() => {
         AOS.init();
+        axios.get("/services").then(res => setServices(res.data))
     }, []);
 
     return (
@@ -30,14 +45,25 @@ const Home = () => {
             <div className='mt-16 '>
                 <p className='text-center text-lg text-[#00A452] mb-4'>Our services</p>
                 <h1 className=' mx-auto text-center max-w-2xl text-5xl text-black mb-12'>Fast and Reliable Repairs for Every Need</h1>
-                <div className='max-w-7xl mx-auto'>
-                    <div data-aos="fade-up" data-aos-duration="5000" className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 '>
-                        <Card name={"Data Recovery"} overview={" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, dolorum."} logo={"https://i.postimg.cc/9F3v7FQK/icon-7.png"} img={"https://i.postimg.cc/8z439Rmg/service-img-8.jpg"} />
-
-                        <Card name={"Data Recovery"} overview={" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, dolorum."} logo={"https://i.postimg.cc/9F3v7FQK/icon-7.png"} img={"https://i.postimg.cc/8z439Rmg/service-img-8.jpg"} />
-
-                        <Card name={"Data Recovery"} overview={" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, dolorum."} logo={"https://i.postimg.cc/9F3v7FQK/icon-7.png"} img={"https://i.postimg.cc/8z439Rmg/service-img-8.jpg"} />
-                    </div>
+                <div data-aos="fade-right" className='max-w-7xl mx-auto'>
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        freeMode={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[FreeMode, Pagination]}
+                        className="mySwiper">
+                        {
+                            services.map((service) => (
+                                <SwiperSlide key={service._id}>
+                                    <Card name={service.service_name} overview={service.description} logo={"https://i.postimg.cc/9F3v7FQK/icon-7.png"} img={service.service_img} />
+                                </SwiperSlide>
+                                
+                            ))
+                        }
+                    </Swiper>
                 </div>
             </div>
 
@@ -99,10 +125,10 @@ const Home = () => {
                             <div className='flex items-center'>___________
                                 <div className='ml-4 flex items-center'>
                                     <FaStar className='text-[#00A452]' />
-                                    <FaStar className='text-[#00A452]'/>
-                                    <FaStar className='text-[#00A452]'/>
-                                    <FaStar className='text-[#00A452]'/>
-                                    <FaStarHalfAlt className='text-[#00A452] '/>
+                                    <FaStar className='text-[#00A452]' />
+                                    <FaStar className='text-[#00A452]' />
+                                    <FaStar className='text-[#00A452]' />
+                                    <FaStarHalfAlt className='text-[#00A452] ' />
                                 </div>
                             </div>
                             <p className='max-w-96  ml-32'> Our expertise covers a broad spectrum of devices laptops, desktops, smartphones, tablets, and more..</p>
@@ -113,9 +139,9 @@ const Home = () => {
 
             <div className='max-w-7xl mx-auto'>
                 <div className='grid grid-cols-3'>
-                    <Expertise name={"Skilled Technicians"} description={"Our team comprises skilled professionals with extensive training & certifications."}/>
-                    <Expertise name={"10+ Years Experiences"} description={"Work with the client to set short-term and long-term financial goals."}/>
-                    <Expertise name={"Quality Guarantee"} description={"Work with the client to set short-term and long-term financial goals."}/>
+                    <Expertise name={"Skilled Technicians"} description={"Our team comprises skilled professionals with extensive training & certifications."} />
+                    <Expertise name={"10+ Years Experiences"} description={"Work with the client to set short-term and long-term financial goals."} />
+                    <Expertise name={"Quality Guarantee"} description={"Work with the client to set short-term and long-term financial goals."} />
                 </div>
             </div>
 
