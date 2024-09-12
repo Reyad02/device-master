@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = ({ name, overview, logo, img }) => {
     return (
         <div>
-            <div className="card bg-white w-96 shadow-xl">
+            <div className="card bg-white lg:w-96 shadow-xl">
                 <figure className="px-8 pt-8 ">
                     <img className="rounded-lg"
                         src={img}

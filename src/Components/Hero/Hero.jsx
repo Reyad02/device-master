@@ -36,13 +36,13 @@ const Hero = () => {
                                 <h1 className="mb-5 text-xl font-semibold uppercase max-w-4xl text-[#00A452]">
                                     Your device, our expertise
                                 </h1>
-                                <h1  className="mb-5 text-6xl font-semibold max-w-4xl text-left">
+                                <h1  className="mb-5 lg:text-6xl md:text-4xl text-3xl font-semibold max-w-4xl lg:text-left text-center">
                                     Tech Rescuers, Saving Your Devices and Your Day
                                 </h1>
 
                             </div>
 
-                            <div className="absolute left-0 bottom-0 flex flex-col items-start justify-end px-6 py-8 text-white bg-[#00A452] bg-opacity-20 rounded-tr-3xl z-10 ">
+                            <div className="hidden absolute left-0 bottom-0 lg:flex flex-col items-start justify-end px-6 py-8 text-white bg-[#00A452] bg-opacity-20 rounded-tr-3xl z-10 ">
                                 <div className='flex gap-8'>
                                     <p className='flex gap-2 items-center'><span className=' text-[#00A452]'><FaCheckCircle /></span> IT Devices Repaired</p>
                                     /
@@ -104,7 +104,7 @@ const Hero = () => {
 
                             </div>
 
-                            <div className="absolute left-0 bottom-0 flex flex-col items-start justify-end px-6 py-8 text-white bg-[#00A452] bg-opacity-20 rounded-tr-3xl z-10 ">
+                            <div className=" absolute left-0 bottom-0 flex flex-col items-start justify-end px-6 py-8 text-white bg-[#00A452] bg-opacity-20 rounded-tr-3xl z-10  ">
                                 <div className='flex gap-8'>
                                     <p className='flex gap-2 items-center'><span className=' text-[#00A452]'><FaCheckCircle /></span> IT Devices Repaired</p>
                                     /
