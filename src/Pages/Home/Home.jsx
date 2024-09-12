@@ -60,13 +60,13 @@ const Home = () => {
                             </div>
                             <div className='flex-1 flex flex-col lg:ml-16 mt-32 lg:mt-0 space-y-4 '>
                                 <h1 data-aos="fade-up" className='text-3xl'>How to Save Your Gadget?</h1>
-                                <p data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>Invest in a quality phone case to protect device.</p></p>
-                                <p data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>Set up a strong password or biometric lock.</p></p>
-                                <p data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>Saving Your Phone from Theft.</p></p>
-                                <p data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p> Only download apps and files from trusted sources.
-                                </p></p>
-                                <p data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>  Disable Bluetooth, Wi-Fi, and GPS when not in use.
-                                </p></p>
+                                <div data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>Invest in a quality phone case to protect device.</p></div>
+                                <div data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>Set up a strong password or biometric lock.</p></div>
+                                <div data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>Saving Your Phone from Theft.</p></div>
+                                <div data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p> Only download apps and files from trusted sources.
+                                </p></div>
+                                <div data-aos="fade-up" className='flex gap-2 items-center lg:ml-12 text-base'><span className='text-[#00A452]'><FaCheckCircle /></span> <p>  Disable Bluetooth, Wi-Fi, and GPS when not in use.
+                                </p></div>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@ const Home = () => {
 
                         {/* Content inside the parallax */}
                         <div className=' text-white text-lg' style={insideStyles}>
-                            <p className='flex items-center'>___________
+                            <div className='flex items-center'>___________
                                 <div className='ml-4 flex items-center'>
                                     <FaStar className='text-[#00A452]' />
                                     <FaStar className='text-[#00A452]'/>
@@ -104,7 +104,7 @@ const Home = () => {
                                     <FaStar className='text-[#00A452]'/>
                                     <FaStarHalfAlt className='text-[#00A452] '/>
                                 </div>
-                            </p>
+                            </div>
                             <p className='max-w-96  ml-32'> Our expertise covers a broad spectrum of devices laptops, desktops, smartphones, tablets, and more..</p>
                         </div>
                     </div>
