@@ -5,6 +5,7 @@ import About from "../Pages/About/About";
 import axios from "axios";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import Each_Service from "../Pages/Each_Service/Each_Service";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
                 path: "/about",
                 element: <About></About>,
                 loader: () => axios.get("/services").then(response => response.data),
+            },
+            {
+                path: "/services/:id",
+                element: <Each_Service></Each_Service>,
+                loader: ({params}) => axios.get(`/service/${params.id}`).then(response => response.data),
             },
             {
                 path: "/login",

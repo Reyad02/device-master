@@ -11,8 +11,8 @@ import { Pagination } from 'swiper/modules';
 const Hero = () => {
 
     return (
-        <div>
-            <div className='h-screen '>
+        <div className='-z-10'>
+            <div className='h-screen -z-10'>
                 <Swiper
                     direction={'vertical'}
                     pagination={{
@@ -24,14 +24,12 @@ const Hero = () => {
                 >
                     <SwiperSlide>
                         <div className="relative w-full h-[100vh] overflow-hidden">
-                            {/* Lottie Animation Background */}
                             <Lottie
                                 animationData={circuitAnimation}
                                 loop={true}
                                 autoplay={true}
                                 style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: -1, backgroundColor: "#0A211B" }}
                             />
-                            {/* Text Content */}
                             <div className="absolute inset-0 flex flex-col items-start justify-center p-8 text-white bg-black bg-opacity-75 z-10">
                                 <h1 className="mb-5 text-xl font-semibold uppercase max-w-4xl text-[#00A452]">
                                     Your device, our expertise

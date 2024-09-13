@@ -4,6 +4,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { useEffect } from "react";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import Heading_Bg from "../../Components/Heading_Bg/Heading_Bg";
 
 const About = () => {
     const services = useLoaderData();
@@ -14,21 +15,9 @@ const About = () => {
 
     return (
         <div >
-            <div
-                className="hero "
-                style={{
-                    backgroundImage: "url(https://i.postimg.cc/SQXzGRsv/pngtree-abstract-gradient-crystal-texure-background-in-dark-green-color-image-671444.jpg)",
-                }}>
-                <div className="hero-overlay bg-opacity-60 py-32"></div>
-                <div className="hero-content text-neutral-content text-center">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold text-white">Our Team</h1>
-
-                    </div>
-                </div>
-            </div>
+            <Heading_Bg name={"Our Team"}></Heading_Bg>
             <div className="max-w-7xl mx-auto my-12">
-                <div className="grid grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
                     {
                         services.map((service) => (
                             <Person_Card key={service._id} name={service?.service_provider} skills={service?.skills} img={service?.service_provider_img} />

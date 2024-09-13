@@ -1,11 +1,27 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "/Devicemaster.png"
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import './Navbar.css';
 import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
+// import { useLocation } from 'react-router-dom';
 
 
 const Navbar = ({ isSticky }) => {
+
+    const [services, setServices] = useState([]);
+
+
+
+
+    useEffect(() => {
+        axios.get("/services").then(res => {
+            setServices(res.data);
+        })
+
+    }, []);
+
+
     const { user, logout } = useContext(AuthContext);
     const logoutUser = () => {
         logout();
@@ -31,15 +47,29 @@ const Navbar = ({ isSticky }) => {
                     backgroundColor: "transparent",
                 };
             }} to="/about" >About</NavLink></li>
-        <li><NavLink
-            className="NavLink font-semibold"
-            style={({ isActive, isTransitioning }) => {
-                return {
-                    color: isActive ? "#00AA55" : "",
-                    viewTransitionName: isTransitioning ? "slide" : "",
-                    backgroundColor: "transparent",
-                };
-            }} to="/services" >Services</NavLink></li>
+        <li className="hover:bg-transparent ">
+            <details className="hover:bg-transparent " >
+                <summary className="font-semibold bg-transparent hover:bg-transparent transition-none ">Services</summary>
+                <ul className=" bg-white rounded-t-none p-2 mt-2">
+                    {
+                        services.map(service => (
+                            <li className="" key={service._id}>
+                                <NavLink
+                                    className="NavLink font-semibold"
+                                    style={({ isActive, isTransitioning }) => ({
+                                        color: isActive ? "#00AA55" : "",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                        backgroundColor: "#fff",
+                                    })}
+                                    to={`/services/${service._id}`} >
+                                    {service.service_name}
+                                </NavLink>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </details>
+        </li>
         <li><NavLink
             className="NavLink font-semibold"
             style={({ isActive, isTransitioning }) => {
@@ -74,7 +104,7 @@ const Navbar = ({ isSticky }) => {
 
 
     return (
-        <div className={`bg-white drop-shadow-lg ${isSticky ? 'fixed top-0 w-full transition' : ''}`}>
+        <div className={`relative z-50 bg-white drop-shadow-lg ${isSticky ? 'fixed top-0 w-full transition' : ''}`}>
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">

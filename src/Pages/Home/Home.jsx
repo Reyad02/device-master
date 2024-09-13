@@ -41,7 +41,9 @@ const Home = () => {
 
     return (
         <div >
-            <Hero></Hero>
+            <div className='-z-10'>
+                <Hero></Hero>
+            </div>
             <div className='mt-16 '>
                 <p className='text-center text-lg text-[#00A452] mb-4'>Our services</p>
                 <h1 className=' mx-auto text-center max-w-2xl text-5xl text-black mb-12'>Fast and Reliable Repairs for Every Need</h1>
@@ -60,7 +62,7 @@ const Home = () => {
                                 <SwiperSlide key={service._id}>
                                     <Card name={service.service_name} overview={service.description} logo={"https://i.postimg.cc/9F3v7FQK/icon-7.png"} img={service.service_img} />
                                 </SwiperSlide>
-                                
+
                             ))
                         }
                     </Swiper>
