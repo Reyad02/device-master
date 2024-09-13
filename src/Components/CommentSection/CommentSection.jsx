@@ -37,7 +37,7 @@ const CommentSection = () => {
                                 <hr />
                                 <div className='mt-8'>
                                     <div className='flex items-center justify-start gap-4'>
-                                        <img style={{ width: '80px', height: 'auto', borderRadius: '9999px' }} src="https://i.postimg.cc/rmhjzwsd/lloyd-sikeba.jpg" alt="Description of the image" />
+                                        <img className='object-cover' style={{ width: '80px', height: 'auto', borderRadius: '9999px' }} src="https://i.postimg.cc/rmhjzwsd/lloyd-sikeba.jpg" alt="Description of the image" />
                                         <div>
                                             <p className='text-[#00A452] text-lg'>Mark Henry</p>
                                             <p className='text-base'>Hardware Technician</p>
@@ -68,7 +68,7 @@ const CommentSection = () => {
                                 <hr />
                                 <div className='mt-8'>
                                     <div className='flex items-center justify-start gap-4'>
-                                        <img style={{ width: '80px', height: '80px', borderRadius: '9999px' }} src="https://i.postimg.cc/76Q1wtt0/depositphotos-13720689-stock-photo-young-businesswoman.webp" alt="Description of the image" />
+                                        <img className='object-cover	' style={{ width: '80px', height: '80px', borderRadius: '9999px' }} src="https://i.postimg.cc/76Q1wtt0/depositphotos-13720689-stock-photo-young-businesswoman.webp" alt="Description of the image" />
                                         <div>
                                             <p className='text-[#00A452] text-lg'>Alex Shayna</p>
                                             <p className='text-base'>Mobile Technician</p>
@@ -99,7 +99,7 @@ const CommentSection = () => {
                                 <hr />
                                 <div className='mt-8'>
                                     <div className='flex items-center justify-start gap-4'>
-                                        <img style={{ width: '80px', height: '80px', borderRadius: '9999px' }} src="https://i.postimg.cc/qv8GyLgH/360-F-302884605-actpip-Od-POQHDTn-Ftp4zg4-Rtl-Wzh-OASp.jpg" alt="Description of the image" />
+                                        <img className='object-cover	' style={{ width: '80px', height: '80px', borderRadius: '9999px'  }} src="https://i.postimg.cc/qv8GyLgH/360-F-302884605-actpip-Od-POQHDTn-Ftp4zg4-Rtl-Wzh-OASp.jpg" alt="Description of the image" />
                                         <div>
                                             <p className='text-[#00A452] text-lg'>Robert William</p>
                                             <p className='text-base'>Mobile Technician</p>

@@ -1,7 +1,7 @@
 
 const Person_Card = ({ name, skills, img }) => {
     return (
-        <div className="relative">
+        <div className="relative hover:scale-110 hover:duration-300 hover:transform	hover:ease-in	">
             <div className=" bg-transparent  w-96 rounded-xl shadow-xl ">
                 <figure className="relative">
                     <img className="rounded-xl"
