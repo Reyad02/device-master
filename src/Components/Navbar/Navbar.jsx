@@ -87,7 +87,7 @@ const Navbar = ({ isSticky }) => {
                     viewTransitionName: isTransitioning ? "slide" : "",
                     backgroundColor: "transparent",
                 };
-            }} to="/blog" >Blog</NavLink></li>
+            }} to="/blogs" >Blog</NavLink></li>
         <li><NavLink
             className="NavLink font-semibold"
             style={({ isActive, isTransitioning }) => {
