@@ -27,7 +27,7 @@ const Blogs = () => {
             <div className="flex flex-col gap-12">
                 {
                     blogs.map((blog) => (
-                        <BlogsCard key={blog._id} id={blog._id} title={blog.title} tags={blog.tags} img={blog.img} description={blog.description} postDate={blog.postDate} ></BlogsCard>
+                        <BlogsCard key={blog._id} blog={blog} id={blog._id} title={blog.title} tags={blog.tags} img={blog.img} description={blog.description} postDate={blog.postDate} ></BlogsCard>
                     ))
                 }
             </div>

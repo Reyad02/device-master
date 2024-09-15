@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import TeamMemberReducer from "../features/Team_Member/Team_MemberSlice"
-
+import blogSlice from "../features/Blog_feature/Blog_feature"
 const store = configureStore({
     reducer: {
-        Team_Member: TeamMemberReducer,
+        full_blog: blogSlice
     }
 })
 

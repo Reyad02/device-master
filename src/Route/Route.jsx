@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: "/blogs/:id",
                 element: <Each_Blog></Each_Blog>,
-                loader: ({ params }) => axios.get(`/blogs/${params.id}`).then(response => response.data),
+                // loader: ({ params }) => axios.get(`/blogs/${params.id}`).then(response => response.data),
             },
             {
                 path: "/contact",

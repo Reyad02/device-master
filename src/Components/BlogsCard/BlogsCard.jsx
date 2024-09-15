@@ -4,14 +4,20 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { getBlog } from "../../features/Blog_feature/Blog_feature";
 
-const BlogsCard = ({img, title, tags, description, postDate, id }) => {
+const BlogsCard = ({img, title, tags, description, postDate, id, blog }) => {
     const dateObj = new Date(postDate);
+    const dispatch = useDispatch();
     const formattedDate = dateObj.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
     });
+    const handleFullBlog = (blog) =>{
+        dispatch(getBlog(blog)) 
+    }
     return (
         <div className="border rounded-3xl pb-6 ">
             <div className="relative shadow-md  rounded-l-3xl">
@@ -36,17 +42,15 @@ const BlogsCard = ({img, title, tags, description, postDate, id }) => {
                 <p className="text-[#7f7f7f] text-base">{description?.length > 300 ? description?.slice(0,300)+"..." : description }</p>
                 <hr />
                 <div className="flex justify-between">
-                    <Link to={`/blogs/${id}`} className="text-[#00AA55] flex items-center font-medium hover:text-green-700">READ MORE <GoArrowUpRight className="text-lg"/></Link>
+                    <Link to={`/blogs/${id}`} onClick={()=>{handleFullBlog(blog)}} className="text-[#00AA55] flex items-center font-medium hover:text-green-700">READ MORE <GoArrowUpRight className="text-lg"/></Link>
                     <div className="flex gap-2">
                         <button className="btn btn-circle btn-sm bg-[#d0d0cf] outline-none border-none hover:bg-[#00AA55]"><FaFacebook className="text-base hover:text-white"/></button>
                         <button className="btn btn-circle btn-sm bg-[#d0d0cf] outline-none border-none hover:bg-[#00AA55]"><FaInstagram className="text-base hover:text-white"/></button>
                         <button className="btn btn-circle btn-sm bg-[#d0d0cf] outline-none border-none hover:bg-[#00AA55]"><FaXTwitter className="text-base hover:text-white"/></button>
                         <button className="btn btn-circle btn-sm bg-[#d0d0cf] outline-none border-none hover:bg-[#00AA55]"><FaLinkedin className="text-base hover:text-white"/></button>
-
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

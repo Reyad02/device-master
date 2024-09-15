@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import { useLoaderData } from "react-router-dom";
 
 const Each_Blog = () => {
-    const blog = useLoaderData();
+    const blog = useSelector(state => state.full_blog);
+    // console.log(blog);
+    // const blog = useLoaderData();
     const [blogComments, setBlogComments] = useState(blog?.comments || [])
-    const dateObj = new Date(blog.postDate);
+    const dateObj = new Date(blog?.postDate);
     const formattedDate = dateObj.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -36,7 +39,7 @@ const Each_Blog = () => {
                         <div className="absolute bottom-0 right-0 ml-56 w-[95%] px-8 rounded-tl-2xl py-4 bg-[#F7F7F7] text-[#7f7f7f] flex justify-between">
                             <div>
                                 {
-                                    blog?.tags.slice(0, 2).map((tag, idx) => (
+                                    blog?.tags?.slice(0, 2)?.map((tag, idx) => (
                                         <span key={idx} className="mr-2 border border-[#00AA55] text-[#00AA55] text-sm font-semibold px-2 py-1 rounded-full">{tag}</span>
                                     ))
                                 }
@@ -53,7 +56,7 @@ const Each_Blog = () => {
                     <hr />
                     <div>
                         {
-                            blog?.tags.map((tag, idx) => (
+                            blog?.tags?.map((tag, idx) => (
                                 <span key={idx} className="mr-2 bg-[#e4e4e4] text-[#00AA55] text-sm font-semibold px-2 py-1 rounded-full">{tag}</span>
                             ))
                         }
