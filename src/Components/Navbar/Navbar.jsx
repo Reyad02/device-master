@@ -78,15 +78,6 @@ const Navbar = ({ isSticky }) => {
                     viewTransitionName: isTransitioning ? "slide" : "",
                     backgroundColor: "transparent",
                 };
-            }} to="/project" >Projects</NavLink></li>
-        <li><NavLink
-            className="NavLink font-semibold"
-            style={({ isActive, isTransitioning }) => {
-                return {
-                    color: isActive ? "#00AA55" : "",
-                    viewTransitionName: isTransitioning ? "slide" : "",
-                    backgroundColor: "transparent",
-                };
             }} to="/blogs" >Blog</NavLink></li>
         <li><NavLink
             className="NavLink font-semibold"

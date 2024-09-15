@@ -8,6 +8,7 @@ import Registration from "../Pages/Registration/Registration";
 import Each_Service from "../Pages/Each_Service/Each_Service";
 import Blogs from "../Pages/Blogs/Blogs";
 import Each_Blog from "../Pages/Each_Blog/Each_Blog";
+import Contact from "../Pages/Contact/Contact";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: "/services/:id",
                 element: <Each_Service></Each_Service>,
-                loader: ({params}) => axios.get(`/service/${params.id}`).then(response => response.data),
+                loader: ({ params }) => axios.get(`/service/${params.id}`).then(response => response.data),
             },
             {
                 path: "/blogs",
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
             {
                 path: "/blogs/:id",
                 element: <Each_Blog></Each_Blog>,
-                loader: ({params}) => axios.get(`/blogs/${params.id}`).then(response => response.data),
+                loader: ({ params }) => axios.get(`/blogs/${params.id}`).then(response => response.data),
+            },
+            {
+                path: "/contact",
+                element: <Contact></Contact>,
+                // loader: () => axios.get(`/blogs`).then(response => response.data),
             },
             {
                 path: "/login",
