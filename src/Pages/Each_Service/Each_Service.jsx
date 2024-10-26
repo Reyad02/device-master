@@ -1,21 +1,29 @@
 import { useLoaderData } from "react-router-dom";
 import Heading_Bg from "../../Components/Heading_Bg/Heading_Bg";
 import { FaSquare } from "react-icons/fa6";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+// import CheckForm from "../Payment/CheckForm";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const Each_Service = () => {
     const service = useLoaderData();
     const { user } = useContext(AuthContext);
+
+
     useEffect(() => {
         AOS.init();
     }, []);
-    const handleForm = (e) => {
+
+    const handleForm = async (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -24,29 +32,17 @@ const Each_Service = () => {
         const price = form.price.value;
         const message = form.message.value;
         const paymentStatus = false
-        const data = { name, email, phone, price, message, paymentStatus }
+        const service_name = service.service_name
+        const data = { name, email, phone, price, message, paymentStatus, service_name }
+
+        const response = await axios.post("/order", data);
+        const session = response.data;
+
+        const stripe = await stripePromise;
+        await stripe.redirectToCheckout({ sessionId: session.id });
 
 
-        axios.post("/order", data)
-            .then(res => {
-                if (res.data.insertedId) {
-                    form.reset();
-                    toast.success('Order Confirmed!', {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    });
-
-                }
-            }
-            )
     }
-
     return (
         <div>
             <Heading_Bg name={service.service_name}></Heading_Bg>
@@ -72,7 +68,7 @@ const Each_Service = () => {
                             </div>
 
                             <div className="form-control mt-2">
-                                <button className="btn bg-[#15803D] text-white outline-none border-none w-fit">Send Now</button>
+                                <button className="btn bg-[#15803D] text-white outline-none border-none w-fit" >Send Now</button>
                             </div>
                         </form>
                         <ToastContainer
@@ -102,7 +98,7 @@ const Each_Service = () => {
                     <p className="text-[#7f7f7f] text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odit error veritatis libero ratione cupiditate aperiam at. Porro aliquam unde, aspernatur quidem assumenda eius iste. Accusamus voluptate qui non. Fugiat ex, mollitia officia fugit voluptatibus molestias quo fuga, veritatis consectetur excepturi facilis cum doloribus laboriosam labore quisquam esse? Ipsam harum, nobis, deserunt unde cumque fuga atque vitae expedita culpa id, quas ipsum! Itaque fugit culpa nam odit mollitia sed repellat sit, ipsa nemo necessitatibus qui ratione soluta recusandae magnam, exercitationem pariatur obcaecati deserunt, quaerat magni ab laudantium rerum doloremque cumque. Quam, vel praesentium cumque facere eum quibusdam neque numquam recusandae quas maiores ad obcaecati aliquid repellendus sunt, voluptatem repellat nisi. Architecto tempora repellendus nesciunt deserunt accusamus facere ratione reprehenderit numquam!</p>
                 </div>
                 <p className="text-4xl font-semibold mb-4">Essential FAQs for Camera & Lens Repairs</p>
-                <div data-aos="fade-up"  className="mb-8 space-y-2">
+                <div data-aos="fade-up" className="mb-8 space-y-2">
                     <div className="collapse collapse-plus bg-[#F4F6F6] border border-[#7f7f7f]">
                         <input type="radio" name="my-accordion-3" defaultChecked />
                         <div className="collapse-title text-xl font-medium">Do I need to pay extra for replacement parts?</div>
@@ -140,7 +136,6 @@ const Each_Service = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

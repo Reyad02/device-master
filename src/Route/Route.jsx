@@ -9,6 +9,7 @@ import Each_Service from "../Pages/Each_Service/Each_Service";
 import Blogs from "../Pages/Blogs/Blogs";
 import Each_Blog from "../Pages/Each_Blog/Each_Blog";
 import Contact from "../Pages/Contact/Contact";
+import Payment from "../Pages/Payment/Payment";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
                 path: "/contact",
                 element: <Contact></Contact>,
                 // loader: () => axios.get(`/blogs`).then(response => response.data),
+            },
+            {
+                path: "/success/:id",
+                element: <Payment></Payment>,
             },
             {
                 path: "/login",
