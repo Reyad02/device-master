@@ -10,6 +10,8 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [forgetEmail, setForgetEmail] = useState("");
+    const from = location.state?.from || "/";
+
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +22,8 @@ const Login = () => {
             // Signed up 
             const user = userCredential.user;
             setError(null);
+            navigate(from, { replace: true });
+
             // if (email === import.meta.env.VITE_ADMIN) {
             //     navigate("/admin")
             //     // window.location.replace("http://localhost:5173/admin");

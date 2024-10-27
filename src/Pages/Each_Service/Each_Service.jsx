@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Heading_Bg from "../../Components/Heading_Bg/Heading_Bg";
 import { FaSquare } from "react-icons/fa6";
 import { useContext, useEffect, useState } from "react";
@@ -17,6 +17,9 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 const Each_Service = () => {
     const service = useLoaderData();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const currentLocation= location.pathname;
 
 
     useEffect(() => {
@@ -25,21 +28,25 @@ const Each_Service = () => {
 
     const handleForm = async (e) => {
         e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const phone = form.phone.value;
-        const price = form.price.value;
-        const message = form.message.value;
-        const paymentStatus = false
-        const service_name = service.service_name
-        const data = { name, email, phone, price, message, paymentStatus, service_name }
+        if (user) {
+            const form = e.target;
+            const name = form.name.value;
+            const email = form.email.value;
+            const phone = form.phone.value;
+            const price = form.price.value;
+            const message = form.message.value;
+            const paymentStatus = false
+            const service_name = service.service_name
+            const data = { name, email, phone, price, message, paymentStatus, service_name }
 
-        const response = await axios.post("/order", data);
-        const session = response.data;
+            const response = await axios.post("/order", data);
+            const session = response.data;
 
-        const stripe = await stripePromise;
-        await stripe.redirectToCheckout({ sessionId: session.id });
+            const stripe = await stripePromise;
+            await stripe.redirectToCheckout({ sessionId: session.id });
+        }else{
+            navigate("/login",{state: {from: currentLocation}})
+        }
 
 
     }
