@@ -10,6 +10,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Each_Blog from "../Pages/Each_Blog/Each_Blog";
 import Contact from "../Pages/Contact/Contact";
 import Payment from "../Pages/Payment/Payment";
+import Cancel from "../Pages/Payment/Cancel";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: "/success/:id",
                 element: <Payment></Payment>,
+            },
+            {
+                path: "/cancel",
+                element: <Cancel></Cancel>,
             },
             {
                 path: "/login",
