@@ -11,6 +11,8 @@ import Each_Blog from "../Pages/Each_Blog/Each_Blog";
 import Contact from "../Pages/Contact/Contact";
 import Payment from "../Pages/Payment/Payment";
 import Cancel from "../Pages/Payment/Cancel";
+import Admin_Home from "../Pages/Admin/Admin_Home/Admin_Home";
+import PrivateAdminRoute from "./PrivateAdminRoute";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
                 path: "/registration",
                 element: <Registration></Registration>
             },
+            {
+                path: "/admin",
+                element: <PrivateAdminRoute><Admin_Home></Admin_Home></PrivateAdminRoute>
+            }
         ]
     },
 ]);

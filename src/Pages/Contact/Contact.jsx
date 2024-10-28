@@ -4,7 +4,6 @@ const Contact = () => {
     return (
         <div>
             <Heading_Bg name={"Contact Us"}></Heading_Bg>
-
         </div>
     );
 };

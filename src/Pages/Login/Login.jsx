@@ -22,7 +22,12 @@ const Login = () => {
             // Signed up 
             const user = userCredential.user;
             setError(null);
-            navigate(from, { replace: true });
+            if (userCredential._tokenResponse.email === import.meta.env.VITE_ADMIN) {
+                navigate("/admin", { replace: true });
+            } else {
+                navigate(from, { replace: true });
+            }
+            // console.log(userCredential._tokenResponse.email)
 
             // if (email === import.meta.env.VITE_ADMIN) {
             //     navigate("/admin")
