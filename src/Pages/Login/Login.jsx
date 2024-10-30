@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-// import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaMeta } from "react-icons/fa6";
@@ -27,19 +26,6 @@ const Login = () => {
             } else {
                 navigate(from, { replace: true });
             }
-            // console.log(userCredential._tokenResponse.email)
-
-            // if (email === import.meta.env.VITE_ADMIN) {
-            //     navigate("/admin")
-            //     // window.location.replace("http://localhost:5173/admin");
-            // }
-            // else {
-            //     if (location?.state == "/admin") {
-            //         navigate("/")
-            //     } else {
-            //         navigate(location?.state ? location?.state : "/")
-            //     }
-            // }
         })
             .catch((error) => {
                 const errorCode = error.code;
@@ -54,12 +40,7 @@ const Login = () => {
             // Signed up 
             const user = userCredential.user;
             setError(null);
-            // if (location?.state == "/admin") {
-            //     navigate("/")
-            // } else {
-            //     navigate(location?.state ? location?.state : "/")
-            // }
-
+            navigate(from, { replace: true });
         })
             .catch((error) => {
                 const errorCode = error.code;
@@ -73,12 +54,7 @@ const Login = () => {
             // Signed up 
             const user = userCredential.user;
             setError(null);
-            // if (location?.state == "/admin") {
-            //     navigate("/")
-            // } else {
-            //     navigate(location?.state ? location?.state : "/")
-            // }
-
+            navigate(from, { replace: true });
         })
             .catch((error) => {
                 const errorCode = error.code;
@@ -88,8 +64,6 @@ const Login = () => {
     }
 
     const handleForgetPass = () => {
-        // console.log("clicked")
-        // console.log(forgetEmail);
         forgetPass(forgetEmail).then(() => {
             // Password reset email sent!
             // ..
@@ -147,8 +121,6 @@ const Login = () => {
                             <div className="mx-8 mt-4">
                                 <Link to={"/registration"} className="btn bg-white text-[#15803D] border border-[#7f7f7f] w-full hover:text-white">Registration</Link>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

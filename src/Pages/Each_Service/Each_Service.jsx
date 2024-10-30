@@ -93,7 +93,7 @@ const Each_Service = () => {
                     </div>
                     <div className="lg:w-2/3">
                         <figure className="relative">
-                            <img className="rounded-xl w-full object-cover"
+                            <img className="rounded-xl w-full h-[500px] object-cover"
                                 src={service.service_img}
                                 alt="Shoes" />
                             <div className="absolute bg-black z-10 inset-0 opacity-30 rounded-xl"></div>

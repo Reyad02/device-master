@@ -4,8 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import './Navbar.css';
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
-// import { useLocation } from 'react-router-dom';
-
 
 const Navbar = ({ isSticky }) => {
 
@@ -44,29 +42,6 @@ const Navbar = ({ isSticky }) => {
                     backgroundColor: "transparent",
                 };
             }} to="/about" >About</NavLink></li>
-        {/* <li className="hover:bg-transparent ">
-            <details className="hover:bg-transparent " >
-                <summary className="font-semibold bg-transparent hover:bg-transparent transition-none ">Services</summary>
-                <ul className=" bg-white rounded-t-none p-2 mt-2">
-                    {
-                        services.map(service => (
-                            <li className="" key={service._id}>
-                                <NavLink
-                                    className="NavLink font-semibold"
-                                    style={({ isActive, isTransitioning }) => ({
-                                        color: isActive ? "#00AA55" : "",
-                                        viewTransitionName: isTransitioning ? "slide" : "",
-                                        backgroundColor: "#fff",
-                                    })}
-                                    to={`/services/${service._id}`} >
-                                    {service.service_name}
-                                </NavLink>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </details>
-        </li> */}
         <li><NavLink
             className="NavLink font-semibold"
             style={({ isActive, isTransitioning }) => {
@@ -87,7 +62,7 @@ const Navbar = ({ isSticky }) => {
             }} to="/contact" >Contact</NavLink></li>
 
         {
-            user ? user.email === import.meta.env.VITE_ADMIN ? <li><NavLink
+            user ? user?.email === import.meta.env.VITE_ADMIN ? <li><NavLink
                 className="NavLink font-semibold"
                 style={({ isActive, isTransitioning }) => {
                     return {
@@ -119,9 +94,18 @@ const Navbar = ({ isSticky }) => {
                 </details>
             </li> : <></>
         }
-        {/* {
-           user ? user.email === import.meta.env.VITE_ADMIN ? <li><NavLink to={"/admin"}>Dashboard</NavLink></li> : <li><NavLink to={"/dashboard"}>Dashboard</NavLink></li> : <></>
-        } */}
+
+        {
+            user?.email === import.meta.env.VITE_ADMIN && <li><NavLink
+                className="NavLink font-semibold"
+                style={({ isActive, isTransitioning }) => {
+                    return {
+                        color: isActive ? "#00AA55" : "",
+                        viewTransitionName: isTransitioning ? "slide" : "",
+                        backgroundColor: "transparent",
+                    };
+                }} to="/add_service" >Add Service</NavLink></li>
+        }
     </>
 
 

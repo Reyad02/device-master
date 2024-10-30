@@ -13,6 +13,7 @@ import Payment from "../Pages/Payment/Payment";
 import Cancel from "../Pages/Payment/Cancel";
 import Admin_Home from "../Pages/Admin/Admin_Home/Admin_Home";
 import PrivateAdminRoute from "./PrivateAdminRoute";
+import Add_Service from "../Pages/Admin/Add_Service/Add_Service";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path: "/admin",
                 element: <PrivateAdminRoute><Admin_Home></Admin_Home></PrivateAdminRoute>
+            },
+            {
+                path: "/add_service",
+                element: <PrivateAdminRoute><Add_Service></Add_Service></PrivateAdminRoute>
             }
         ]
     },
