@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 // import { useLoaderData } from "react-router-dom";
 
 const Each_Blog = () => {
@@ -32,6 +33,9 @@ const Each_Blog = () => {
 
     return (
         <div className="max-w-7xl mx-auto">
+            <Helmet>
+                <title>Device Master - {blog?.title}</title>
+            </Helmet>
             <div className=" pb-6">
                 <div className="relative shadow-md  rounded-l-3xl">
                     <img className="w-full h-96 rounded-3xl object-cover" src={blog?.img} alt="" />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Heading_Bg from '../../../Components/Heading_Bg/Heading_Bg';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const Admin_Home = () => {
     const [orders, setOrders] = useState([]);
@@ -11,6 +12,9 @@ const Admin_Home = () => {
     }, [])
     return (
         <div>
+            <Helmet>
+                <title>Device Master - Order</title>
+            </Helmet>
             <Heading_Bg name={"Orders"}></Heading_Bg>
             <div className="overflow-x-auto">
                 <table className="table ">

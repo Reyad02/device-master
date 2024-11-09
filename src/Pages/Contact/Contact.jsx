@@ -3,12 +3,17 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineWifiCalling3 } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'; 
+import 'leaflet/dist/leaflet.css';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
 
+
     return (
         <div>
+            <Helmet>
+                <title>Device Master - Contact</title>
+            </Helmet>
             <Heading_Bg name={"Contact Us"}></Heading_Bg>
             <div className="max-w-7xl mx-auto px-4 my-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

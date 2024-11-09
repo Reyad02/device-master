@@ -1,5 +1,6 @@
 import Heading_Bg from '../../../Components/Heading_Bg/Heading_Bg';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 function Add_Blogs() {
@@ -37,6 +38,9 @@ function Add_Blogs() {
 
     return (
         <div>
+            <Helmet>
+                <title>Device Master - Blog</title>
+            </Helmet>
             <Heading_Bg name={"Blog"} />
 
             <div className='mx-auto max-w-7xl mt-4'>

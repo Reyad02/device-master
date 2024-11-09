@@ -20,6 +20,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -41,6 +42,9 @@ const Home = () => {
 
     return (
         <div >
+            <Helmet>
+                <title>Device Master</title>
+            </Helmet>
             <div className='-z-10'>
                 <Hero></Hero>
             </div>

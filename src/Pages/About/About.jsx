@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Heading_Bg from "../../Components/Heading_Bg/Heading_Bg";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
     const services = useLoaderData();
@@ -15,6 +16,9 @@ const About = () => {
 
     return (
         <div >
+            <Helmet>
+                <title>Device Master - About</title>
+            </Helmet>
             <Heading_Bg name={"Our Team"}></Heading_Bg>
             <div className="max-w-7xl mx-auto my-12">
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">

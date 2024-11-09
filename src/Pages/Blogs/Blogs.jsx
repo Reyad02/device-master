@@ -1,6 +1,7 @@
 import BlogsCard from "../../Components/BlogsCard/BlogsCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
@@ -24,6 +25,9 @@ const Blogs = () => {
     }, [page])
     return (
         <div className="max-w-5xl mx-auto my-12">
+            <Helmet>
+                <title>Device Master - Blogs</title>
+            </Helmet>
             <div className="flex flex-col gap-12">
                 {
                     blogs.map((blog) => (

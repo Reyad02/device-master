@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 const Add_Service = () => {
@@ -19,7 +20,7 @@ const Add_Service = () => {
         formData.append("image", rawImg);
 
         const responseImgURL = await axios.post(
-            `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`,formData);
+            `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`, formData);
         if (responseImgURL.data.success) {
             const imgURL = responseImgURL.data.data.url;
             const data = {
@@ -50,6 +51,9 @@ const Add_Service = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Device Master - Service</title>
+            </Helmet>
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle backdrop-blur-sm">
                 <div className="modal-box bg-[#F4F6F6]">
                     <div className='flex flex-col gap-4'>

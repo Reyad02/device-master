@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { Helmet } from "react-helmet-async";
 // import CheckForm from "../Payment/CheckForm";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
@@ -19,7 +20,7 @@ const Each_Service = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const currentLocation= location.pathname;
+    const currentLocation = location.pathname;
 
 
     useEffect(() => {
@@ -44,14 +45,17 @@ const Each_Service = () => {
 
             const stripe = await stripePromise;
             await stripe.redirectToCheckout({ sessionId: session.id });
-        }else{
-            navigate("/login",{state: {from: currentLocation}})
+        } else {
+            navigate("/login", { state: { from: currentLocation } })
         }
 
 
     }
     return (
         <div>
+            <Helmet>
+                <title>Device Master - {service?.service_name}</title>
+            </Helmet>
             <Heading_Bg name={service.service_name}></Heading_Bg>
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-center my-12">

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaMeta } from "react-icons/fa6";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const [error, setError] = useState(null);
     const { login, googleLogin, facebookLogin, forgetPass } = useContext(AuthContext);
@@ -78,6 +79,9 @@ const Login = () => {
 
     return (
         <div className="max-w-7xl mx-auto">
+            <Helmet>
+                <title>Device Master - Login</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto mt-8">
                 <div className="hero ">
                     <div className="hero-content flex-col lg:flex-row-reverse  w-full  rounded-xl ">
