@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
+import { AuthContext } from "../../Provider/AuthProvider";
 // import { useLoaderData } from "react-router-dom";
 
 const Each_Blog = () => {
     const blog = useSelector(state => state.full_blog);
-    // console.log(blog);
-    // const blog = useLoaderData();
+    const { user } = useContext(AuthContext);
     const [blogComments, setBlogComments] = useState(blog?.comments || [])
     const dateObj = new Date(blog?.postDate);
     const formattedDate = dateObj.toLocaleDateString('en-US', {
@@ -62,32 +62,34 @@ const Each_Blog = () => {
                         }
                     </div>
                 </div>
-                <div className="my-8 lg:w-1/2 w-full pl-2 space-y-4">
-                    <p className="text-2xl  font-semibold ">Leave a comment</p>
-                    <form className="space-y-4" onSubmit={handleComment}>
-                        <div className="flex flex-col">
-                            <label className="text-[#7f7f7f]" htmlFor="comment">
-                                Comment
-                            </label>
-                            <textarea className="textarea bg-transparent border border-[#e4e4e4] h-32" name="comment" id=""></textarea>
-                        </div>
-                        <div className="flex flex-col">
-                            <label className="text-[#7f7f7f]" htmlFor="name">
-                                Name
-                            </label>
-                            <input type="text" className="input bg-transparent border border-[#e4e4e4] " name="name" id=""></input>
-                        </div>
-                        <div className="flex flex-col">
-                            <label className="text-[#7f7f7f]" htmlFor="email">
-                                Email
-                            </label>
-                            <input type="email" className="input bg-transparent border border-[#e4e4e4] " name="email" id=""></input>
-                        </div>
-                        <button className="btn text-[#00AA55] bg-transparent border border-[#00AA55] hover:bg-[#00AA55] hover:text-white hover:border-none">Post Comment</button>
-                    </form>
+                {user?.email !== import.meta.env.VITE_ADMIN &&
+                    <div className="my-8 lg:w-1/2 w-full pl-2 space-y-4">
+                        <p className="text-2xl  font-semibold ">Leave a comment</p>
+                        <form className="space-y-4" onSubmit={handleComment}>
+                            <div className="flex flex-col">
+                                <label className="text-[#7f7f7f]" htmlFor="comment">
+                                    Comment
+                                </label>
+                                <textarea className="textarea bg-transparent border border-[#e4e4e4] h-32" name="comment" id=""></textarea>
+                            </div>
+                            <div className="flex flex-col">
+                                <label className="text-[#7f7f7f]" htmlFor="name">
+                                    Name
+                                </label>
+                                <input type="text" className="input bg-transparent border border-[#e4e4e4] " name="name" id=""></input>
+                            </div>
+                            <div className="flex flex-col">
+                                <label className="text-[#7f7f7f]" htmlFor="email">
+                                    Email
+                                </label>
+                                <input type="email" className="input bg-transparent border border-[#e4e4e4] " name="email" id=""></input>
+                            </div>
+                            <button className="btn text-[#00AA55] bg-transparent border border-[#00AA55] hover:bg-[#00AA55] hover:text-white hover:border-none">Post Comment</button>
+                        </form>
 
 
-                </div>
+                    </div>
+                }
                 {
                     blogComments?.map((bl, idx) => (
                         <div key={idx} className="border rounded-xl p-4 flex gap-4 items-center mt-4 lg:w-1/2 w-full">

@@ -106,6 +106,18 @@ const Navbar = ({ isSticky }) => {
                     };
                 }} to="/add_service" >Add Service</NavLink></li>
         }
+
+        {
+            user?.email === import.meta.env.VITE_ADMIN && <li><NavLink
+                className="NavLink font-semibold"
+                style={({ isActive, isTransitioning }) => {
+                    return {
+                        color: isActive ? "#00AA55" : "",
+                        viewTransitionName: isTransitioning ? "slide" : "",
+                        backgroundColor: "transparent",
+                    };
+                }} to="/add_blog" >Add Blog</NavLink></li>
+        }
     </>
 
 

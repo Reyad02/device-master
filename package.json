@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-image": "^43.3.1",
+    "@ckeditor/ckeditor5-link": "^43.3.1",
+    "@ckeditor/ckeditor5-react": "^9.3.1",
     "@egjs/flicking": "^4.11.4",
     "@egjs/react-flicking": "^4.11.4",
     "@reduxjs/toolkit": "^2.2.7",
@@ -17,6 +20,9 @@
     "@stripe/stripe-js": "^4.9.0",
     "aos": "^2.3.4",
     "axios": "^1.7.7",
+    "ckeditor5": "^43.3.1",
+    "ckeditor5-premium-features": "^43.3.1",
+    "draft-js": "^0.11.7",
     "firebase": "^10.13.1",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
