@@ -8,6 +8,8 @@ import axios from "axios";
 const Navbar = ({ isSticky }) => {
 
     const [services, setServices] = useState([]);
+    const [openDropDown, setOpenDropDown] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         axios.get("/services").then(res => {
@@ -16,6 +18,9 @@ const Navbar = ({ isSticky }) => {
 
     }, []);
 
+    useEffect(() => {
+        setOpenDropDown(false);
+    }, [location])
 
     const { user, logout } = useContext(AuthContext);
     const logoutUser = () => {
@@ -71,7 +76,7 @@ const Navbar = ({ isSticky }) => {
                         backgroundColor: "transparent",
                     };
                 }} to="/admin" >Orders</NavLink></li> : <li className="hover:bg-transparent ">
-                <details className="hover:bg-transparent " >
+                <details className="hover:bg-transparent" open={openDropDown} onToggle={(e) => setOpenDropDown(e.target.open)}>
                     <summary className="font-semibold bg-transparent hover:bg-transparent transition-none ">Services</summary>
                     <ul className=" bg-white rounded-t-none p-2 mt-2">
                         {
