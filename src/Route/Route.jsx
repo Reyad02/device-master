@@ -16,7 +16,7 @@ import PrivateAdminRoute from "./PrivateAdminRoute";
 import Add_Service from "../Pages/Admin/Add_Service/Add_Service";
 import Add_Blog from "../Pages/Admin/Add_Blog/Add_Blog";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://device-master-backend.vercel.app";
 
 const router = createBrowserRouter([
     {
