@@ -1,4 +1,4 @@
-# Bus Ticket Management System
+# Device Master
 
 Device Master is a web-based platform designed to simplify the process of fixing mobile phones and laptops. Whether you're dealing with a broken screen, software issues, or hardware malfunctions, Device Master connects you with reliable repair services seamlessly.
 
